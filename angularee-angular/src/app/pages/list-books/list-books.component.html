@@ -1,0 +1,6 @@
+<div class="ui-g ui-fluid">
+  <div class="ui-g-12 ui-md-8 ui-md-offset-2">
+    <div (click)="open(book.id)" class="ui-g-12 ui-md-4" *ngFor="let book of books$ | async">
+      <p-card>{{book.title}}</p-card>
+    </div>
+  </div>

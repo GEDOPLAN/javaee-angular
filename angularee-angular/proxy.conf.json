@@ -1,0 +1,11 @@
+{
+  "/resources/*": {
+    "target": "http://localhost:8080/JavaEE-1.0-SNAPSHOT/",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/resources/": "/resources/"
+    }
+  }
+}

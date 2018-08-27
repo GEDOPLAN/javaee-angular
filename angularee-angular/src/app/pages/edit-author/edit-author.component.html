@@ -1,0 +1,32 @@
+<div class="ui-g ui-fluid">
+  <div class="ui-g-12 ui-md-8 ui-md-offset-2">
+    <form (ngSubmit)="save()">
+      <div class="ui-float-label">
+        <p-autoComplete *ngIf="authorList" id="authorfield" [(ngModel)]="authorList.selected" [suggestions]="authorList.filtered"
+          (completeMethod)="authorList.filter($event)" [dropdown]="true" name="author" field="value" forceSelection="true"
+          (onSelect)="loadAuthor(authorList.selected.id)">
+        </p-autoComplete>
+        <label for="authorfield">Author</label>
+      </div>
+      <div *ngIf="author">
+        <div class="ui-float-label">
+          <input pInputText type="text" name="firstnameField" id="firstnameField" [(ngModel)]="author.firstname">
+          <label for="firstnameField">Vorname</label>
+        </div>
+        <div class="ui-float-label">
+          <input pInputText type="text" name="lastnameField" id="lastnameField" [(ngModel)]="author.lastname">
+          <label for="lastnameField">Nachname</label>
+        </div>
+        <div>
+          <button pButton type="button" class="ui-button-rounded ui-button-success" disabled="disabled" label="Anzahl Bücher: {{author.bookcount}}"></button>
+        </div>
+        <div class="ui-g-12 ui-md-4 ui-md-offset-2">
+          <p-button type="submit" label="submit"></p-button>
+        </div>
+        <div class="ui-g-12 ui-md-offset-2 ui-md-4">
+          <p-button [routerLink]="[ '/books'] " label="cancel"></p-button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

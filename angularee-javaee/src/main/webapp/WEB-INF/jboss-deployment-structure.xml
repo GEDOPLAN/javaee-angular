@@ -1,0 +1,10 @@
+<jboss-deployment-structure xmlns="urn:jboss:deployment-structure:1.0">
+
+    <deployment>
+        <exclusions>
+            <!-- see bug: https://issues.jboss.org/browse/RESTEASY-1911 -->
+            <module name="org.jboss.resteasy.resteasy-json-binding-provider"></module>
+        </exclusions>
+    </deployment>
+
+</jboss-deployment-structure>

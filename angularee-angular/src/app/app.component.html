@@ -9,4 +9,4 @@
 </div>
 <router-outlet></router-outlet>
 
-<p-messages></p-messages>
+<p-messages [enableService]="false" [(value)]="gedErrorService.messages" (valueChange)="ref.tick()"></p-messages>

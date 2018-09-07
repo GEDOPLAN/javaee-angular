@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ApplicationRef } from '@angular/core';
 import { MenuItem } from 'primeng/components/common/menuitem';
+import { GedErrorService } from './common/service/error.service';
 
 @Component({
   selector: 'GED-root',
@@ -7,7 +8,7 @@ import { MenuItem } from 'primeng/components/common/menuitem';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  constructor() {}
+  constructor(public gedErrorService: GedErrorService, public ref: ApplicationRef) {}
 
   mitms: MenuItem[] = [{ label: 'Bücher', routerLink: ['books'] }, { label: 'Autoren', routerLink: ['author-edit'] }];
 }

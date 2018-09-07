@@ -7,5 +7,7 @@ import { MenuItem } from 'primeng/components/common/menuitem';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  constructor() {}
+
   mitms: MenuItem[] = [{ label: 'Bücher', routerLink: ['books'] }, { label: 'Autoren', routerLink: ['author-edit'] }];
 }

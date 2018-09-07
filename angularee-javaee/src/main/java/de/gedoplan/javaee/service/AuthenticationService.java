@@ -32,11 +32,14 @@ public class AuthenticationService {
     }
 
     public String login(String username, String password) {
-        // User gegen Datenbankprüfen etc.
-        if (username.equals(password)) {
+        // ...Benuter-Prüfung und Gruppen ermitteln
+        boolean authSuccessful=username.equals(password);
+        String[] groups=new String[]{"user"};
+        //
+        if (authSuccessful) {
             return JWT.create()
                     .withIssuer(username)
-                    .withArrayClaim("groups", new String[]{"user"})
+                    .withArrayClaim("groups", groups)
                     .sign(algorithmHS);
         } else {
             return null;

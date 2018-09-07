@@ -1,7 +1,7 @@
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { UserService } from '../services/user.service';
 import { Injectable } from '@angular/core';
+import { UserService } from '../service/user.service';
 
 @Injectable()
 export class SecurityInterceptor implements HttpInterceptor {
@@ -9,7 +9,9 @@ export class SecurityInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     if (this.userService.token) {
-      const changedReq = req.clone({ headers: req.headers.set('Authorization', this.userService.token) });
+      const changedReq = req.clone(
+        { headers: req.headers.set('Authorization', this.userService.token) }
+      );
       return next.handle(changedReq);
     }
 

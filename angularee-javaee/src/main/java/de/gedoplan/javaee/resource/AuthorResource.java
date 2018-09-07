@@ -7,8 +7,10 @@ import de.gedoplan.javaee.jackson.views.GlobalViews;
 import de.gedoplan.javaee.model.Author;
 import de.gedoplan.javaee.model.ListValue;
 import de.gedoplan.javaee.repository.AuthorRepository;
+import io.swagger.annotations.Api;
 import java.util.List;
-import javax.enterprise.context.ApplicationScoped;
+import javax.annotation.security.PermitAll;
+import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -24,9 +26,11 @@ import javax.ws.rs.core.Response;
  * @author GEDOPLAN, Dominik Mathmann
  */
 @Path("author")
+@Api(value = "Author") // minium Konfiguration für Swagger
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
-@ApplicationScoped
+@Stateless
+@PermitAll
 public class AuthorResource {
 
     @Inject
@@ -61,7 +65,7 @@ public class AuthorResource {
 
     @PUT
     @Path("{id}")
-    public Response updateAuthor(@PathParam("id") Integer id, String authorJson) throws JsonMappingException {
+    public Response updateAuthor(@PathParam("id") Integer id, Author authorJson) throws JsonMappingException {
         Author dbAuthor = this.authorRepository.getAuthorById(id);
         dbAuthor = mapper.updateValue(dbAuthor, authorJson);
         dbAuthor= this.authorRepository.merge(dbAuthor);

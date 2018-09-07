@@ -4,7 +4,6 @@ import { ListBooksComponent } from './pages/list-books/list-books.component';
 import { EditBookComponent } from './pages/edit-book/edit-book.component';
 import { EditAuthorComponent } from './pages/edit-author/edit-author.component';
 import { LoginComponent } from './pages/login/login.component';
-import { UserService } from './common/services/user.service';
 import { SecurityGuard } from './common/system/SecurityGuard';
 
 const routes: Routes = [

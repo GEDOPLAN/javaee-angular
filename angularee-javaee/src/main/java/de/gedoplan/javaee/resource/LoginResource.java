@@ -2,6 +2,7 @@ package de.gedoplan.javaee.resource;
 
 import de.gedoplan.javaee.service.AuthenticationService;
 import de.gedoplan.javaee.system.security.JWTAuth;
+import io.swagger.annotations.Api;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
@@ -16,6 +17,7 @@ import javax.ws.rs.core.Response;
  * @author GEDOPLAN, Dominik Mathmann
  */
 @Path("login")
+@Api(value = "Login") // minium Konfiguration für Swagger
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class LoginResource {

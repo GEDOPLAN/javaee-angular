@@ -24,13 +24,13 @@
             <url-pattern>/resources/swagger.json</url-pattern>
         </web-resource-collection>
     </security-constraint>
-
     <security-constraint>
         <web-resource-collection>
-            <web-resource-name>Admin pages</web-resource-name>
+            <web-resource-name>all</web-resource-name>
             <url-pattern>/resources/*</url-pattern>
         </web-resource-collection>
         <auth-constraint>
+            <role-name>admin</role-name>
             <role-name>user</role-name>
         </auth-constraint>
     </security-constraint>

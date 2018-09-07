@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthorService } from '../../common/services/author.service';
 import { ListModel } from '../../common/models/ListModel';
 import { Router } from '@angular/router';
+import { AuthorService } from '../../generated';
 
 @Component({
   selector: 'GED-edit-author',
@@ -14,7 +14,7 @@ export class EditAuthorComponent implements OnInit {
   author: any;
 
   constructor(private authorService: AuthorService, private router: Router) {
-    authorService.getListValue().subscribe(ls => {
+    authorService.getListValues().subscribe(ls => {
       this.authorList = new ListModel(ls);
     });
   }
@@ -24,7 +24,7 @@ export class EditAuthorComponent implements OnInit {
   }
 
   save() {
-    this.authorService.saveAuthor(this.author).subscribe(r => {
+    this.authorService.updateAuthor(this.author.id, this.author).subscribe(r => {
       this.router.navigateByUrl('/');
     });
   }

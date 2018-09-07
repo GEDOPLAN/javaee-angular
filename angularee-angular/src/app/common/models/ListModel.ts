@@ -1,7 +1,4 @@
-class ListValue {
-  id: number;
-  value: string;
-}
+import { ListValue } from '../../generated';
 
 export class ListModel {
   available: ListValue[];

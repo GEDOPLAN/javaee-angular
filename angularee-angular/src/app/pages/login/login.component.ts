@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../common/services/user.service';
 import { Router } from '@angular/router';
+import { UserService } from '../../common/service/user.service';
 
 @Component({
   selector: 'GED-login',
@@ -14,7 +14,7 @@ export class LoginComponent {
 
   login(username: string, password: string) {
     this.userService
-      .login(username, password)
+      .loginUser(username, password)
       .subscribe(r => this.router.navigateByUrl(''), error => (this.message = 'Login failed'));
   }
 }

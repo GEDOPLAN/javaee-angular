@@ -21,7 +21,6 @@ import javax.ws.rs.core.MediaType;
 @Api(value = "Publisher") // minium Konfiguration für Swagger
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
-@Stateless
 @PermitAll
 public class PublisherResource {
     @Inject

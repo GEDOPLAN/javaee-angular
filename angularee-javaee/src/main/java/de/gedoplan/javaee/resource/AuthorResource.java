@@ -29,7 +29,6 @@ import javax.ws.rs.core.Response;
 @Api(value = "Author") // minium Konfiguration für Swagger
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
-@Stateless
 @PermitAll
 public class AuthorResource {
 

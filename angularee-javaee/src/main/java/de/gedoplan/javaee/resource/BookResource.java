@@ -37,7 +37,6 @@ import javax.ws.rs.core.Response;
 @Api(value = "Books")
 @SwaggerDefinition(securityDefinition = @SecurityDefinition(apiKeyAuthDefinitions = {
     @ApiKeyAuthDefinition(key = "jwt", name = "Authorization", in = ApiKeyLocation.HEADER)}))
-@Stateless
 @PermitAll
 public class BookResource {
 
